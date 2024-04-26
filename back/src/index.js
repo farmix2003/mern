@@ -19,7 +19,7 @@ const app = express();
 const router = express.Router()
 app.use(bodyParser.json());
 const options = {
-    origin: 'https://mern-front-brown.vercel.app/',
+    origin: 'https://mern-front-brown.vercel.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }
@@ -40,7 +40,7 @@ app.get("/", (req, res) => {
     res.status(200).json({ message: 'Server is running' });
 })
 
-app.get('/api/users/get-users', verifyToken, cors(options), (req, res) => {
+app.get('/api/users/get-users', verifyToken, (req, res) => {
 
     connection.query('select * from users', (error, results, fields) => {
         if (error) {
