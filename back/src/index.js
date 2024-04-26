@@ -18,17 +18,13 @@ dotenv.config();
 const app = express();
 const router = express.Router()
 app.use(bodyParser.json());
-app.options('*', cors({
+const options = {
     origin: 'https://mern-front-brown.vercel.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
-}));
+}
 
-app.use(cors({
-    origin: 'https://mern-front-brown.vercel.app',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true
-}));
+app.use(cors(options));
 
 
 app.use(router);
@@ -37,7 +33,7 @@ app.get("/", (req, res) => {
     res.status(200).json({ message: 'Server is running' });
 })
 
-app.get('/api/users/get-users', verifyToken, (req, res) => {
+app.get('/api/users/get-users', verifyToken, cors(options), (req, res) => {
 
     connection.query('select * from users', (error, results, fields) => {
         if (error) {
