@@ -18,7 +18,13 @@ dotenv.config();
 const app = express();
 const router = express.Router()
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors(
+    {
+    origin: ["https://mern-front-brown.vercel.app/"],
+    methods: ["POST","GET","PUT","DELETE"],
+    credentials: true
+    }
+));
 
 app.use(router);
 
