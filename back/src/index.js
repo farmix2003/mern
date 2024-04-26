@@ -19,7 +19,7 @@ const app = express();
 const router = express.Router()
 app.use(bodyParser.json());
 const options = {
-    origin: 'https://mern-front-brown.vercel.app',
+    origin: 'https://mern-front-brown.vercel.app/',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }
