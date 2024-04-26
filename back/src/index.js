@@ -20,7 +20,7 @@ const router = express.Router()
 app.use(bodyParser.json());
 app.use(cors(
     {
-    origin: ["https://mern-front-brown.vercel.app/"],
+    origin: ["https://mern-front-brown.vercel.app"],
     methods: ["POST","GET","PUT","DELETE"],
     credentials: true
     }
