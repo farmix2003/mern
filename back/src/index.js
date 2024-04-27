@@ -19,10 +19,14 @@ const app = express();
 const router = express.Router()
 app.use(bodyParser.json());
 const options = {
-    origin: 'https://mern-front-brown.vercel.app',
+    origin: ['https://mern-front-brown.vercel.app', 'https://inter-paint.vercel.app'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization'],
     credentials: true
-}
+};
+
+app.use(cors(options));
+
 
 app.options('/api/users/get-users', cors())
 app.options('/api/users/login', cors())
