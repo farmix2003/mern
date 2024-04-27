@@ -41,7 +41,6 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization'); // Allow specified headers
     res.setHeader('Access-Control-Allow-Credentials', true); // Allow credentials
     if (req.method === 'OPTIONS') {
-        // Handle preflight requests
         res.sendStatus(200);
     } else {
         next();
