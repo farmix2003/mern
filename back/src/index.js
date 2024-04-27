@@ -1,10 +1,3 @@
-// const express = require('express')
-// const bodyParser = require('body-parser');
-// const cors = require('cors');
-// const dotenv = require('dotenv')
-// const { connection } = require('./db.js')
-// const jwt = require('jsonwebtoken')
-// import verifyToken = req ('./auth.js')
 import express from 'express'
 import bodyParser from 'body-parser';
 import cors from 'cors'
@@ -22,7 +15,7 @@ const DB_HOST = '127.0.0.1';
 const DB_NAME = 'users';
 const DB_PORT = 3306;
 const DB_USER = 'root';
-const DB_PASSWORD = 'Farmix<2003>';
+const DB_PASSWORD = '';
 
 
 
