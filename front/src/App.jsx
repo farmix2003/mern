@@ -33,7 +33,9 @@ const App = () => {
         <Route path="/" element={<Login />} />
         <Route
           path="/home"
-          element={<Main users={users} setUsers={setUsers} />}
+          element={
+            <Main users={users} setUsers={setUsers} isLoggedIn={isLoggedIn} />
+          }
         />
         <Route
           path="/login"
