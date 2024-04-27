@@ -17,10 +17,11 @@ const connection = mysql2.createConnection({
     database: DB_NAME,
     port: DB_PORT
 });
-connection.connect(function (err) {
-    if (err) {
-        console.error('Error connecting to database:', err);
-        return;
+
+connection.connect(() => {
+    if (connection) {
+        console.log("Connected to database");
+    } else {
+        console.log("Failed to connect to database")
     }
-    console.log('Connected to database');
-});
+})

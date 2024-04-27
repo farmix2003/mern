@@ -34,7 +34,10 @@ export const getUsers = async () => {
         const response = await axios.get('/api/users/get-users', {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            }
+            },
+            method: 'GET',
+            withCredentials: true,
+
         })
         return response.data
     } catch (error) {
