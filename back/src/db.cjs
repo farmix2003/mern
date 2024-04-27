@@ -10,17 +10,17 @@ const DB_PASSWORD = 'Farmix<2003>';
 
 
 
-const connection = mysql2.createConnection({
+const connection = mysql2.createPool({
     host: DB_HOST,
     user: DB_USER,
     password: DB_PASSWORD,
     database: DB_NAME,
     port: DB_PORT
 });
-connection.connect(function (err) {
-    if (err) {
-        console.error('Error connecting to database:', err);
-        return;
-    }
-    console.log('Connected to database');
-});
+// connection.connect(function (err) {
+//     if (err) {
+//         console.error('Error connecting to database:', err);
+//         return;
+//     }
+//     console.log('Connected to database');
+// });
