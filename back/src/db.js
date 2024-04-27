@@ -1,4 +1,4 @@
-const mysql2 = require('mysql2');
+import mysql2 from 'mysql2';
 
 // const mysql = require('mysql')
 
@@ -10,18 +10,17 @@ const DB_PASSWORD = 'Farmix<2003>';
 
 
 
-const connection = mysql2.createConnection({
+export const connection = mysql2.createConnection({
     host: DB_HOST,
     user: DB_USER,
     password: DB_PASSWORD,
     database: DB_NAME,
     port: DB_PORT
 });
-
-connection.connect(() => {
-    if (connection) {
-        console.log("Connected to database");
-    } else {
-        console.log("Failed to connect to database")
+connection.connect(function (err) {
+    if (err) {
+        console.log('Error connecting to database:', err);
+        return;
     }
-})
+    console.log('Connected to database');
+});
