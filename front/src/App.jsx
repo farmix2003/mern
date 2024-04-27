@@ -38,10 +38,10 @@ const App = () => {
           }
         />
         <Route
-          path="/login"
+          path="api/users/login"
           element={<Login setIsLoggedIn={setIsLoggedIn} />}
         />
-        <Route path="/register" element={<Register />} />
+        <Route path="/api/users/register" element={<Register />} />
         <Route path="/admin" element={<UserManagement />} />
       </Routes>
     </>

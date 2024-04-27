@@ -18,8 +18,6 @@ dotenv.config();
 
 
 
-
-
 const DB_HOST = 'localhost';
 const DB_NAME = 'users';
 const DB_PORT = 3306;
@@ -34,13 +32,6 @@ const connection = mysql2.createPool({
     password: DB_PASSWORD,
     database: DB_NAME,
     port: DB_PORT
-});
-connection.connect(function (err) {
-    if (err) {
-        console.log('Error connecting to database:', err);
-        return;
-    }
-    console.log('Connected to database');
 });
 
 const app = express();
@@ -58,8 +49,6 @@ app.use(cors(options));
 app.use(router);
 
 app.options('/api/users/get-users', cors(options))
-app.options('/api/users/login', cors(options))
-app.options('/api/users/register', cors(options))
 app.options('/api/users/delete', cors(options))
 app.options('/api/users/block', cors(options))
 app.options('/api/users/unblock', cors(options))
@@ -106,7 +95,7 @@ router.post('/api/users/login', (req, res) => {
         (error, results) => {
             if (error) {
                 console.error('Error logging in user:', error);
-                return res.status(500).json({ success: false, error: 'Failed to login user' });
+                return res.status(500).json({ success: false, error: error });
             }
 
             if (results.length === 0) {
@@ -219,7 +208,7 @@ router.post('/api/users/logout', verifyToken, (req, res) => {
     res.status(200).json({ success: true, message: 'User logged out successfully' });
 })
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
     console.log(`Server is running at ${PORT}`);
 });
