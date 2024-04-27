@@ -9,11 +9,39 @@ import express from 'express'
 import bodyParser from 'body-parser';
 import cors from 'cors'
 import dotenv from 'dotenv'
-import { connection } from './db.js'
+import mysql2 from 'mysql2';
+
 import jwt from 'jsonwebtoken'
 import verifyToken from './auth.js'
 
 dotenv.config();
+
+
+
+
+
+const DB_HOST = 'localhost';
+const DB_NAME = 'users';
+const DB_PORT = 3306;
+const DB_USER = 'root';
+const DB_PASSWORD = 'Farmix<2003>';
+
+
+
+const connection = mysql2.createPool({
+    host: DB_HOST,
+    user: DB_USER,
+    password: DB_PASSWORD,
+    database: DB_NAME,
+    port: DB_PORT
+});
+connection.connect(function (err) {
+    if (err) {
+        console.log('Error connecting to database:', err);
+        return;
+    }
+    console.log('Connected to database');
+});
 
 const app = express();
 const router = express.Router()
