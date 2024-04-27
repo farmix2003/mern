@@ -97,7 +97,10 @@ function Login({ setIsLoggedIn }) {
           </div>
         </form>
 
-        <a className="mt-10 text-center text-sm text-gray-500" href="/register">
+        <a
+          className="mt-10 text-center text-sm text-gray-500"
+          href="/api/users/register"
+        >
           Not a member?
         </a>
       </div>

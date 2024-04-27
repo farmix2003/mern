@@ -49,6 +49,8 @@ app.use(cors(options));
 app.use(router);
 
 app.options('/api/users/get-users', cors(options))
+app.options('/api/users/login', cors(options))
+app.options('/api/users/register', cors(options))
 app.options('/api/users/delete', cors(options))
 app.options('/api/users/block', cors(options))
 app.options('/api/users/unblock', cors(options))
@@ -58,7 +60,7 @@ app.get("/", (req, res) => {
     res.status(200).json({ message: 'Server is running' });
 })
 
-app.get('/api/users/get-users', verifyToken, (req, res) => {
+app.get('/api/users/get-users', (req, res) => {
 
     connection.query('select * from users', (error, results, fields) => {
         if (error) {
