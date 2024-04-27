@@ -24,8 +24,8 @@ const options = {
     credentials: true
 }
 
-app.options('/api/users/get-users', cors(options))
-app.options('/api/users/login', cors(options))
+app.options('/api/users/get-users', cors())
+app.options('/api/users/login', cors())
 app.options('/api/users/register', cors(options))
 app.options('/api/users/delete', cors(options))
 app.options('/api/users/block', cors(options))
