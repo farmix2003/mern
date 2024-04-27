@@ -35,6 +35,18 @@ app.use(cors(options));
 
 
 app.use(router);
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*'); // Allow requests from any origin
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); // Allow specified methods
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization'); // Allow specified headers
+    res.setHeader('Access-Control-Allow-Credentials', true); // Allow credentials
+    if (req.method === 'OPTIONS') {
+        // Handle preflight requests
+        res.sendStatus(200);
+    } else {
+        next();
+    }
+});
 
 app.get("/", (req, res) => {
     res.status(200).json({ message: 'Server is running' });
