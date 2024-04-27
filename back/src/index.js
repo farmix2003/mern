@@ -19,24 +19,13 @@ const app = express();
 const router = express.Router()
 app.use(bodyParser.json());
 const options = {
-    origin: ['https://mern-front-brown.vercel.app', 'https://inter-paint.vercel.app'],
+    origin: 'https://mern-front-brown.vercel.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization'],
     credentials: true
 };
 
 app.use(cors(options));
-
-
-app.options('/api/users/get-users', cors())
-app.options('/api/users/login', cors())
-app.options('/api/users/register', cors(options))
-app.options('/api/users/delete', cors(options))
-app.options('/api/users/block', cors(options))
-app.options('/api/users/unblock', cors(options))
-app.options('/api/users/logout', cors(options))
-app.use(cors(options));
-
 
 app.use(router);
 app.use((req, res, next) => {
@@ -45,6 +34,13 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization'); // Allow specified headers
     res.setHeader('Access-Control-Allow-Credentials', true); // Allow credentials
     if (req.method === 'OPTIONS') {
+    app.options('/api/users/get-users', cors(options))
+    app.options('/api/users/login', cors(options))
+    app.options('/api/users/register', cors(options))
+    app.options('/api/users/delete', cors(options))
+    app.options('/api/users/block', cors(options))
+    app.options('/api/users/unblock', cors(options))
+    app.options('/api/users/logout', cors(options))
         res.sendStatus(200);
     } else {
         next();
