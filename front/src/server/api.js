@@ -2,7 +2,7 @@ import axios from "axios"
 
 export const loginUser = async (email, password) => {
     try {
-        const response = await axios.post('https://inter-paint.vercel.app/api/users/login', { email, password });
+        const response = await axios.post('https://mern-back-znvb.onrender.com/api/users/login', { email, password });
         return response.data;
     } catch (error) {
         if (error.response) {
@@ -22,7 +22,7 @@ export const loginUser = async (email, password) => {
 
 export const registerUser = async (name, email, password) => {
     try {
-        const response = await axios.post('https://inter-paint.vercel.app/api/users/register', { name, email, password })
+        const response = await axios.post('https://mern-back-znvb.onrender.com/api/users/register', { name, email, password })
         return response.data
     } catch (e) {
         console.log('Failed to register')
@@ -31,7 +31,7 @@ export const registerUser = async (name, email, password) => {
 
 export const getUsers = async () => {
     try {
-        const response = await axios.get('https://inter-paint.vercel.app/api/users/get-users', {
+        const response = await axios.get('https://mern-back-znvb.onrender.com/api/users/get-users', {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
@@ -49,7 +49,7 @@ export const getUsers = async () => {
 
 export const deleteUser = async (ids) => {
     try {
-        const response = await axios.delete(`https://inter-paint.vercel.app/api/users/delete`, {
+        const response = await axios.delete(`https://mern-back-znvb.onrender.com/api/users/delete`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             },
@@ -68,7 +68,7 @@ export const deleteUser = async (ids) => {
 
 export const blockUser = async (ids) => {
     try {
-        const response = await axios.put('https://inter-paint.vercel.app/api/users/block', { ids }, {
+        const response = await axios.put('https://mern-back-znvb.onrender.com/api/users/block', { ids }, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             },
@@ -88,7 +88,7 @@ export const blockUser = async (ids) => {
 
 export const unblockUser = async (ids) => {
     try {
-        const response = await axios.put('https://inter-paint.vercel.app/api/users/unblock', { ids }, {
+        const response = await axios.put('https://mern-back-znvb.onrender.com/api/users/unblock', { ids }, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
@@ -106,7 +106,7 @@ export const unblockUser = async (ids) => {
 
 export const logoutUser = async () => {
     try {
-        await axios.post('https://inter-paint.vercel.app/api/users/logout', null, {
+        await axios.post('https://mern-back-znvb.onrender.com/api/users/logout', null, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
