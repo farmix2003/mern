@@ -28,22 +28,14 @@ const options = {
 app.use(cors(options));
 
 app.use(router);
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization'); // Allow specified headers
-    res.setHeader('Access-Control-Allow-Credentials', true); // Allow credentials
-    if (req.method === 'OPTIONS') {
-        app.options('/api/users/get-users', cors(options))
-        app.options('/api/users/login', cors(options))
-        app.options('/api/users/register', cors(options))
-        app.options('/api/users/delete', cors(options))
-        app.options('/api/users/block', cors(options))
-        app.options('/api/users/unblock', cors(options))
-        app.options('/api/users/logout', cors(options))
-        res.sendStatus(200);
-    } else {
-        next();
-    }
-});
+
+app.options('/api/users/get-users', cors(options))
+app.options('/api/users/login', cors(options))
+app.options('/api/users/register', cors(options))
+app.options('/api/users/delete', cors(options))
+app.options('/api/users/block', cors(options))
+app.options('/api/users/unblock', cors(options))
+app.options('/api/users/logout', cors(options))
 
 app.get("/", (req, res) => {
     res.status(200).json({ message: 'Server is running' });
