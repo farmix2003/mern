@@ -108,7 +108,7 @@ const Register = () => {
           </div>
         </form>
 
-        <a className="mt-10 text-center text-sm text-gray-500" href="/login">
+        <a className="mt-10 text-center text-sm text-gray-500">
           You have an account?
         </a>
       </div>
