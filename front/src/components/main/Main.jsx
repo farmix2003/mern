@@ -59,10 +59,10 @@ function Main({ users, setUsers, isLoggedIn }) {
   };
   React.useEffect(() => {
     const allUsersBlocked = users.every((user) => user.status === "blocked");
-    if (allUsersBlocked && isLoggedIn) {
+    if (allUsersBlocked) {
       navigate("/login");
     }
-  }, [users, isLoggedIn, navigate]);
+  }, []);
   return (
     <div style={{ height: 400, width: "80%", marginLeft: "100px" }}>
       <ToolBar
