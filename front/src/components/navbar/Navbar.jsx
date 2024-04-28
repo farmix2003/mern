@@ -2,12 +2,13 @@ import React from "react";
 import { logoutUser } from "../../server/api";
 import { useNavigate } from "react-router-dom";
 
-const Navbar = ({ isLoggedIn, setIsLoggedIn, userInfo }) => {
+const Navbar = ({ isLoggedIn, setIsLoggedIn, userInfo, setUserInfo }) => {
   const navigate = useNavigate();
   const handleLogout = () => {
     try {
       const response = logoutUser();
       setIsLoggedIn(() => false);
+      setUserInfo(() => "");
       navigate("/login");
       return response;
     } catch (err) {
