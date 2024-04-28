@@ -14,14 +14,14 @@ const ToolBar = ({
   console.log(areUsersBlocked);
   return (
     <div className="w-full min-h-[30px] flex gap-5  my-5">
-      <button
-        className="bg-gray-600 px-3 py-1 text-white font-bold rounded"
-        onClick={handleBlockUsers}
-      >
-        Block
-      </button>
       {!areUsersBlocked && !isAdminBlocked && (
         <>
+          <button
+            className="bg-gray-600 px-3 py-1 text-white font-bold rounded"
+            onClick={handleBlockUsers}
+          >
+            Block
+          </button>
           <button
             className="bg-green-700 px-3 py-1 text-white font-bold rounded"
             onClick={handleUnblockUser}
