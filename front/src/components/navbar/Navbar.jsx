@@ -17,7 +17,7 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn, userInfo }) => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-red-400/10 flex justify-center gap-5 h-[7vh] items-center mb-5">
-        {users.length > 0 && isLoggedIn && (
+        {isLoggedIn && (
           <>
             <span className="font-bold">{userInfo}</span>
             <button
