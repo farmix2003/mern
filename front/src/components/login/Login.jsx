@@ -97,7 +97,7 @@ function Login({ setIsLoggedIn, users, setUsers }) {
           className="mt-10 text-center text-sm text-gray-500 cursor-pointer"
           onClick={() => navigate("/register")}
         >
-          Not a member?
+          You don't have an account?
         </a>
       </div>
       {error && (
