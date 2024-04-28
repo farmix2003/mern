@@ -17,6 +17,7 @@ function Main({ users, setUsers }) {
   const handleSelectAllUsers = () => {
     setSelectAllUSers(!selectAllUsers);
     setSelectedUsers(selectAllUsers ? [] : users.map((user) => user.id));
+    console.log(selectAllUsers);
   };
 
   const handleDeleteUser = async () => {
