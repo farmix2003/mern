@@ -16,7 +16,7 @@ function Login({ setIsLoggedIn, users, setUsers, setUserInfo }) {
       window.localStorage.setItem("refreshToken", response.refreshToken);
       setUsers(users);
       setIsLoggedIn(() => true);
-      setUserInfo({ email: email, password: password });
+      setUserInfo(email);
       navigate("/home");
     } catch (e) {
       if (e.response) {

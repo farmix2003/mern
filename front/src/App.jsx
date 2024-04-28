@@ -8,7 +8,7 @@ import { getUsers } from "./server/api";
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [users, setUsers] = useState([]);
-  const [userInfo, setUserInfo] = useState([]);
+  const [userInfo, setUserInfo] = useState("");
 
   useEffect(() => {
     const getUsersData = async () => {
