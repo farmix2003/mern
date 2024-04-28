@@ -5,7 +5,7 @@ import { blockUser, deleteUser, unblockUser } from "../../server/api";
 
 function Main({ users, setUsers }) {
   const [selectedUsers, setSelectedUsers] = React.useState([]);
-  const [selectAllUsers, setSelectAllUSers] = React.useState(false);
+  const [selectAllUsers, setSelectAllUsers] = React.useState(false);
   console.log(users);
 
   const handleSelectionChange = (userId) => {
