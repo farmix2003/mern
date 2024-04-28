@@ -12,14 +12,14 @@ function Login({ setIsLoggedIn }) {
     try {
       const response = await loginUser(email, password);
       console.log(response);
-      const accessToken = response.accessToken;
+      // const accessToken = response.accessToken;
       setIsLoggedIn(true);
 
-      console.log("Access Token:", accessToken);
+      // console.log("Access Token:", accessToken);
       // console.log("Refresh Token:", refreshToken);
 
       navigate("/home");
-      window.localStorage.setItem("accessToken", accessToken);
+      window.localStorage.setItem("accessToken", response.accessToken);
       // window.localStorage.setItem("refreshToken", refreshToken);
     } catch (e) {
       if (e.response) {
