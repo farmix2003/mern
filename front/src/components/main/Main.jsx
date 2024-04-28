@@ -6,7 +6,6 @@ import { blockUser, deleteUser, unblockUser } from "../../server/api";
 function Main({ users, setUsers }) {
   const [selectedUsers, setSelectedUsers] = React.useState([]);
   const [selectAllUsers, setSelectAllUsers] = React.useState(false);
-  console.log(users);
 
   const handleSelectionChange = (userId) => {
     const newSelectedUsers = selectedUsers.includes(userId)
@@ -91,7 +90,7 @@ function Main({ users, setUsers }) {
                   onChange={() => handleSelectionChange(row._id)}
                 />
               </td>
-              <td>{row._id.slice(0, 5)}</td>
+              <td>{row._id.slice(3, 7)}</td>
               <td>{row.name}</td>
               <td>{row.email}</td>
               <td>

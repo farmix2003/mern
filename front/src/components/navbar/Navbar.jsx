@@ -2,7 +2,7 @@ import React from "react";
 import { logoutUser } from "../../server/api";
 import { useNavigate } from "react-router-dom";
 
-const Navbar = ({ users, isLoggedIn, setIsLoggedIn, userInfo }) => {
+const Navbar = ({ isLoggedIn, setIsLoggedIn, userInfo }) => {
   const navigate = useNavigate();
   const handleLogout = () => {
     try {
@@ -14,7 +14,6 @@ const Navbar = ({ users, isLoggedIn, setIsLoggedIn, userInfo }) => {
       console.log(err);
     }
   };
-  console.log(users);
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-red-400/10 flex justify-center gap-5 h-[7vh] items-center mb-5">

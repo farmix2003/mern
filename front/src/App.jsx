@@ -24,7 +24,6 @@ const App = () => {
   return (
     <>
       <Navbar
-        users={users}
         isLoggedIn={isLoggedIn}
         userInfo={userInfo}
         setIsLoggedIn={setIsLoggedIn}
