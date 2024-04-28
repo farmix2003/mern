@@ -13,7 +13,7 @@ const App = () => {
   useEffect(() => {
     const getUsersData = async () => {
       try {
-        const response = await getUsers({});
+        const response = await getUsers();
         setUsers(response);
       } catch (e) {
         console.log(e);
