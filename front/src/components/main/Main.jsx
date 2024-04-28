@@ -5,18 +5,19 @@ import { blockUser, deleteUser, unblockUser } from "../../server/api";
 
 function Main({ users, setUsers }) {
   const [selectedUsers, setSelectedUsers] = React.useState([]);
-  const [selectAllUsers, setSelectAllUSers] = React.useState([]);
+  const [selectAllUsers, setSelectAllUsers] = React.useState(false);
+  console.log(users);
 
   const handleSelectionChange = (userId) => {
-    const newSelectedUser = selectedUsers.includes(userId)
+    const newSelectedUsers = selectedUsers.includes(userId)
       ? selectedUsers.filter((id) => id !== userId)
       : [...selectedUsers, userId];
-    setSelectedUsers(newSelectedUser);
+    setSelectedUsers(newSelectedUsers);
   };
 
   const handleSelectAllUsers = () => {
-    setSelectAllUSers(!selectAllUsers);
-    setSelectedUsers(selectAllUsers ? [] : users.map((user) => user.id));
+    setSelectedUsers(selectAllUsers ? [] : users.map((user) => user._id));
+    setSelectAllUsers(!selectAllUsers);
   };
 
   const handleDeleteUser = async () => {
