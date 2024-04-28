@@ -108,7 +108,7 @@ const Register = ({ users, setUsers }) => {
 
         <a
           className="mt-10 text-center text-sm text-gray-500 cursor-pointer"
-          onClick={() => navigate("/login")}
+          onClick={() => navigate("/")}
         >
           You have an account?
         </a>

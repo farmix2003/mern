@@ -9,7 +9,7 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn, userInfo, setUserInfo }) => {
       const response = logoutUser();
       setIsLoggedIn(() => false);
       setUserInfo(() => "");
-      navigate("/login");
+      navigate("/");
       return response;
     } catch (err) {
       console.log(err);

@@ -60,7 +60,7 @@ function Main({ users, setUsers, setIsLoggedIn }) {
   React.useEffect(() => {
     const allUsersBlocked = users.every((user) => user.status === "blocked");
     if (allUsersBlocked) {
-      navigate("/login");
+      navigate("/");
       setIsLoggedIn(() => false);
     }
   }, [users]);
