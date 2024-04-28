@@ -15,8 +15,8 @@ function Login({ setIsLoggedIn, users, setUsers }) {
       window.localStorage.setItem("accessToken", response.accessToken);
       window.localStorage.setItem("refreshToken", response.refreshToken);
 
-      navigate("/home");
       setIsLoggedIn(() => true);
+      navigate("/home");
     } catch (e) {
       if (e.response) {
         if (e.status === 403) {
@@ -93,7 +93,10 @@ function Login({ setIsLoggedIn, users, setUsers }) {
           </div>
         </form>
 
-        <a className="mt-10 text-center text-sm text-gray-500" href="/register">
+        <a
+          className="mt-10 text-center text-sm text-gray-500"
+          onClick={() => navigate("/register")}
+        >
           Not a member?
         </a>
       </div>

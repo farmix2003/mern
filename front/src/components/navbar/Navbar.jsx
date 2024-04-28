@@ -22,7 +22,6 @@ const Navbar = ({ users, isLoggedIn, setIsLoggedIn }) => {
           <>
             <span className="font-bold">{users[0].name}</span>
             <button
-              href="/login"
               className="font-bold text-red-500 text-[18px] "
               onClick={handleLogout}
             >

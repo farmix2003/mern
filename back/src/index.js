@@ -92,6 +92,7 @@ router.post('/api/users/login', async (req, res) => {
         const accessToken = generateAccessToken(user)
         const refreshToken = generateRefreshToken(user)
         refreshTokens.push(refreshToken)
+        await User.updateOne({ email }, { $set: { last_login_time: new Date().toISOString() } });
         console.log("Successfully logged in")
         return res.status(200).json({ success: true, message: 'Successfully logged in', accessToken, refreshToken });
     } catch (error) {
