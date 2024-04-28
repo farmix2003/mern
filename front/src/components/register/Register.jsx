@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { registerUser } from "../../server/api";
 import { useNavigate } from "react-router-dom";
 
-const Register = () => {
+const Register = ({ users, setUsers }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,6 +12,7 @@ const Register = () => {
     try {
       const response = await registerUser(name, email, password);
       console.log(response);
+      setUsers(users);
       setName("");
       setEmail("");
       setPassword("");
