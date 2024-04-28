@@ -19,7 +19,7 @@ const App = () => {
       }
     };
     getUsersData();
-  }, []);
+  }, [users]);
   return (
     <>
       <Navbar
