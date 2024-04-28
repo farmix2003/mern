@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { loginUser } from "../../server/api";
 import { useNavigate } from "react-router-dom";
 
-function Login({ setIsLoggedIn, users, setUsers }) {
+function Login({ setIsLoggedIn, users, setUsers, setUserInfo }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -16,6 +16,7 @@ function Login({ setIsLoggedIn, users, setUsers }) {
       window.localStorage.setItem("refreshToken", response.refreshToken);
       setUsers(users);
       setIsLoggedIn(() => true);
+      setUserInfo({ email: email, password: password });
       navigate("/home");
     } catch (e) {
       if (e.response) {

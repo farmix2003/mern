@@ -8,6 +8,7 @@ import { getUsers } from "./server/api";
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [users, setUsers] = useState([]);
+  const [userInfo, setUserInfo] = useState([]);
 
   useEffect(() => {
     const getUsersData = async () => {
@@ -25,6 +26,7 @@ const App = () => {
       <Navbar
         users={users}
         isLoggedIn={isLoggedIn}
+        userInfo={userInfo}
         setIsLoggedIn={setIsLoggedIn}
       />
       <Routes>
@@ -35,6 +37,7 @@ const App = () => {
               setIsLoggedIn={setIsLoggedIn}
               users={users}
               setUsers={setUsers}
+              setUserInfo={setUserInfo}
             />
           }
         />
