@@ -15,9 +15,12 @@ function Login({ setIsLoggedIn }) {
       const { accessToken, refreshToken } = response;
       setIsLoggedIn(true);
 
+      console.log("Access Token:", accessToken);
+      console.log("Refresh Token:", refreshToken);
+
+      navigate("/home");
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("refreshToken", refreshToken);
-      navigate("/home");
     } catch (e) {
       if (e.response) {
         if (e.status === 403) {
