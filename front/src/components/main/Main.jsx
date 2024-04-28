@@ -91,7 +91,7 @@ function Main({ users, setUsers }) {
                   onChange={() => handleSelectionChange(row._id)}
                 />
               </td>
-              <td>{row._id.slice(0, 2)}</td>
+              <td>{row._id.slice(0, 4)}</td>
               <td>{row.name}</td>
               <td>{row.email}</td>
               <td>
