@@ -13,7 +13,6 @@ const App = () => {
     const getUsersData = async () => {
       try {
         const response = await getUsers({});
-
         setUsers(response);
       } catch (e) {
         console.log(e);
