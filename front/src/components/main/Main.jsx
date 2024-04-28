@@ -5,19 +5,19 @@ import { blockUser, deleteUser, unblockUser } from "../../server/api";
 
 function Main({ users, setUsers }) {
   const [selectedUsers, setSelectedUsers] = React.useState([]);
-  const [selectAllUsers, setSelectAllUSers] = React.useState([]);
+  const [selectAllUsers, setSelectAllUSers] = React.useState(false);
   console.log(users);
+
   const handleSelectionChange = (userId) => {
-    const newSelectedUser = selectedUsers.includes(userId)
+    const newSelectedUsers = selectedUsers.includes(userId)
       ? selectedUsers.filter((id) => id !== userId)
       : [...selectedUsers, userId];
-    setSelectedUsers(newSelectedUser);
+    setSelectedUsers(newSelectedUsers);
   };
 
   const handleSelectAllUsers = () => {
-    setSelectedUsers(
-      selectedUsers.length === users.length ? [] : users.map((user) => user.id)
-    );
+    setSelectedUsers(selectAllUsers ? [] : users.map((user) => user._id));
+    setSelectAllUsers(!selectAllUsers);
   };
 
   const handleDeleteUser = async () => {
@@ -69,7 +69,7 @@ function Main({ users, setUsers }) {
             <th>
               <input
                 type="checkbox"
-                checked={selectedUsers.length === users.length}
+                checked={selectAllUsers}
                 onChange={handleSelectAllUsers}
               />
             </th>
@@ -91,7 +91,7 @@ function Main({ users, setUsers }) {
                   onChange={() => handleSelectionChange(row._id)}
                 />
               </td>
-              <td>{row._id.slice(0, 4)}</td>
+              <td>{row._id.slice(0, 5)}</td>
               <td>{row.name}</td>
               <td>{row.email}</td>
               <td>
