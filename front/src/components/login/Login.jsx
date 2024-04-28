@@ -94,7 +94,7 @@ function Login({ setIsLoggedIn, users, setUsers }) {
         </form>
 
         <a
-          className="mt-10 text-center text-sm text-gray-500"
+          className="mt-10 text-center text-sm text-gray-500 cursor-pointer"
           onClick={() => navigate("/register")}
         >
           Not a member?
