@@ -2,10 +2,13 @@ import moment from "moment";
 import * as React from "react";
 import ToolBar from "../toolbar/ToolBar";
 import { blockUser, deleteUser, unblockUser } from "../../server/api";
+import { useNavigate } from "react-router-dom";
 
-function Main({ users, setUsers }) {
+function Main({ users, setUsers, isLoggedIn }) {
   const [selectedUsers, setSelectedUsers] = React.useState([]);
   const [selectAllUsers, setSelectAllUsers] = React.useState(false);
+
+  const navigate = useNavigate();
 
   const handleSelectionChange = (userId) => {
     const newSelectedUsers = selectedUsers.includes(userId)
@@ -54,7 +57,12 @@ function Main({ users, setUsers }) {
       console.log(e);
     }
   };
-
+  React.useEffect(() => {
+    const allUsersBlocked = users.every((user) => user.status === "blocked");
+    if (allUsersBlocked && isLoggedIn) {
+      navigate("/login");
+    }
+  }, [users, isLoggedIn, navigate]);
   return (
     <div style={{ height: 400, width: "80%", marginLeft: "100px" }}>
       <ToolBar
