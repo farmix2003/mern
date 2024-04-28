@@ -15,9 +15,8 @@ function Main({ users, setUsers }) {
   };
 
   const handleSelectAllUsers = () => {
-    setSelectedUsers(
-      selectedUsers.length === users.length ? [] : users.map((user) => user.id)
-    );
+    setSelectAllUSers(!selectAllUsers);
+    setSelectedUsers(selectAllUsers ? [] : users.map((user) => user.id));
   };
 
   const handleDeleteUser = async () => {
@@ -69,7 +68,7 @@ function Main({ users, setUsers }) {
             <th>
               <input
                 type="checkbox"
-                checked={selectedUsers.length === users.length}
+                checked={selectAllUsers}
                 onChange={handleSelectAllUsers}
               />
             </th>
