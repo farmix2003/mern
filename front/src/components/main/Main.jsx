@@ -62,7 +62,7 @@ function Main({ users, setUsers, isLoggedIn }) {
     if (allUsersBlocked) {
       navigate("/login");
     }
-  }, []);
+  }, [users]);
   return (
     <div style={{ height: 400, width: "80%", marginLeft: "100px" }}>
       <ToolBar
