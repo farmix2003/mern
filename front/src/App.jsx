@@ -44,7 +44,11 @@ const App = () => {
         <Route
           path="/home"
           element={
-            <Main users={users} setUsers={setUsers} isLoggedIn={isLoggedIn} />
+            <Main
+              users={users}
+              setUsers={setUsers}
+              setIsLoggedIn={setIsLoggedIn}
+            />
           }
         />
         <Route

@@ -4,7 +4,7 @@ import ToolBar from "../toolbar/ToolBar";
 import { blockUser, deleteUser, unblockUser } from "../../server/api";
 import { useNavigate } from "react-router-dom";
 
-function Main({ users, setUsers, isLoggedIn }) {
+function Main({ users, setUsers, setIsLoggedIn }) {
   const [selectedUsers, setSelectedUsers] = React.useState([]);
   const [selectAllUsers, setSelectAllUsers] = React.useState(false);
 
@@ -61,6 +61,7 @@ function Main({ users, setUsers, isLoggedIn }) {
     const allUsersBlocked = users.every((user) => user.status === "blocked");
     if (allUsersBlocked) {
       navigate("/login");
+      setIsLoggedIn(() => false);
     }
   }, [users]);
   return (
