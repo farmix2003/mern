@@ -4,7 +4,7 @@ import ToolBar from "../toolbar/ToolBar";
 import { blockUser, deleteUser, unblockUser } from "../../server/api";
 import { useNavigate } from "react-router-dom";
 
-function Main({ users, setUsers, isLoggedIn, setIsLoggedIn }) {
+function Main({ users, setUsers, userInfo, isLoggedIn, setIsLoggedIn }) {
   const [selectedUsers, setSelectedUsers] = React.useState([]);
   const [selectAllUsers, setSelectAllUsers] = React.useState(false);
 
@@ -57,21 +57,19 @@ function Main({ users, setUsers, isLoggedIn, setIsLoggedIn }) {
       console.log(e);
     }
   };
-  React.useEffect(() => {
-    const allUsersBlocked = users.every((user) => user.status === "blocked");
-    if (allUsersBlocked && isLoggedIn) {
-      navigate("/");
-      setIsLoggedIn(() => false);
-    } else {
-      return;
-    }
-  }, []);
+
+  const isAdminBlocked = users.find(
+    (user) => user.email === userInfo && user.status === "blocked"
+  );
+
   return (
     <div style={{ height: 400, width: "80%", marginLeft: "100px" }}>
       <ToolBar
         handleDeleteUser={handleDeleteUser}
         handleBlockUsers={handleBlockUsers}
         handleUnblockUser={handleUnblockUser}
+        users={users}
+        isAdminBlocked={isAdminBlocked}
       />
       <table>
         <thead>

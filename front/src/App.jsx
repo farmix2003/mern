@@ -49,6 +49,7 @@ const App = () => {
               users={users}
               setUsers={setUsers}
               setIsLoggedIn={setIsLoggedIn}
+              userInfo={userInfo}
             />
           }
         />

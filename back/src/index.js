@@ -166,7 +166,7 @@ router.post('/api/users/logout', verifyToken, (req, res) => {
     res.status(200).json({ success: true, message: 'User logged out successfully' });
 });
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log(`Server is running at ${PORT}`);
 });
