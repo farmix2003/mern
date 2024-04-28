@@ -41,11 +41,6 @@ function Main({ users, setUsers, setIsLoggedIn }) {
         selectedUsers.includes(user.id) ? { ...user, status: "blocked" } : user
       );
       setUsers(updatedUsers);
-      const allUsersBlocked = users.every((user) => user.status === "blocked");
-      if (allUsersBlocked) {
-        navigate("/");
-        setIsLoggedIn(() => false);
-      }
     } catch (err) {
       console.log(err);
     }
@@ -62,7 +57,15 @@ function Main({ users, setUsers, setIsLoggedIn }) {
       console.log(e);
     }
   };
-  React.useEffect(() => {}, [users]);
+  React.useEffect(() => {
+    const allUsersBlocked = users.every((user) => user.status === "blocked");
+    if (allUsersBlocked) {
+      navigate("/");
+      setIsLoggedIn(() => false);
+    } else {
+      return;
+    }
+  }, [users]);
   return (
     <div style={{ height: 400, width: "80%", marginLeft: "100px" }}>
       <ToolBar
