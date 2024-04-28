@@ -12,7 +12,7 @@ function Login({ setIsLoggedIn }) {
     try {
       const response = await loginUser(email, password);
       console.log(response);
-      window.location.pathname("/home");
+      navigate("/home");
       setIsLoggedIn(true);
       const { accessToken, refreshToken } = response;
 
