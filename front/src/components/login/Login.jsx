@@ -13,7 +13,7 @@ function Login({ setIsLoggedIn, users, setUsers }) {
       const response = await loginUser(email, password);
       console.log(response);
       window.localStorage.setItem("accessToken", response.accessToken);
-      window.localStorage.setItem("refreshToken", refreshToken.refreshToken);
+      window.localStorage.setItem("refreshToken", response.refreshToken);
 
       navigate("/home");
       setIsLoggedIn(() => true);
