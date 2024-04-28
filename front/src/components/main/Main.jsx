@@ -83,15 +83,15 @@ function Main({ users, setUsers }) {
         </thead>
         <tbody>
           {users.map((row) => (
-            <tr key={row.id}>
+            <tr key={row._id}>
               <td>
                 <input
                   type="checkbox"
-                  checked={selectedUsers.includes(row.id)}
-                  onChange={() => handleSelectionChange(row.id)}
+                  checked={selectedUsers.includes(row._id)}
+                  onChange={() => handleSelectionChange(row._id)}
                 />
               </td>
-              <td>{row.id}</td>
+              <td>{row._id}</td>
               <td>{row.name}</td>
               <td>{row.email}</td>
               <td>
