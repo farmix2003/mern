@@ -65,7 +65,7 @@ function Main({ users, setUsers, isLoggedIn, setIsLoggedIn }) {
     } else {
       return;
     }
-  }, [isLoggedIn]);
+  }, []);
   return (
     <div style={{ height: 400, width: "80%", marginLeft: "100px" }}>
       <ToolBar
