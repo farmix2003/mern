@@ -17,22 +17,23 @@ const Navbar = ({ users, isLoggedIn, setIsLoggedIn }) => {
   console.log(users);
   return (
     <>
-      isLoggedIn &&
-      <div>
-        <nav className="navbar navbar-expand-lg navbar-light bg-red-400/10 flex justify-center gap-5 h-[7vh] items-center mb-5">
-          {users.length > 0 && isLoggedIn && (
-            <>
-              <span className="font-bold">{users[0].name}</span>
-              <button
-                className="font-bold text-red-500 text-[18px] "
-                onClick={handleLogout}
-              >
-                Logout
-              </button>
-            </>
-          )}
-        </nav>
-      </div>
+      {isLoggedIn && (
+        <div>
+          <nav className="navbar navbar-expand-lg navbar-light bg-red-400/10 flex justify-center gap-5 h-[7vh] items-center mb-5">
+            {users.length > 0 && isLoggedIn && (
+              <>
+                <span className="font-bold">{users[0].name}</span>
+                <button
+                  className="font-bold text-red-500 text-[18px] "
+                  onClick={handleLogout}
+                >
+                  Logout
+                </button>
+              </>
+            )}
+          </nav>
+        </div>
+      )}
     </>
   );
 };
