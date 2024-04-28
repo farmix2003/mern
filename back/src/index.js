@@ -30,6 +30,7 @@ const router = express.Router();
 app.use(bodyParser.json());
 const options = {
     origin: 'https://mern-front-brown.vercel.app',
+    // origin: 'http://localhost:5173',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization'],
     credentials: true

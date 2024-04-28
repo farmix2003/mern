@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { loginUser } from "../../server/api";
 import { useNavigate } from "react-router-dom";
 
-function Login({ setIsLoggedIn }) {
+function Login({ setIsLoggedIn, users, setUsers }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -13,12 +13,13 @@ function Login({ setIsLoggedIn }) {
       const response = await loginUser(email, password);
       console.log(response);
       // const accessToken = response.accessToken;
-      setIsLoggedIn(true);
+      navigate("/home");
+      setIsLoggedIn(() => true);
+      setUsers(users);
 
       // console.log("Access Token:", accessToken);
       // console.log("Refresh Token:", refreshToken);
 
-      navigate("/home");
       window.localStorage.setItem("accessToken", response.accessToken);
       // window.localStorage.setItem("refreshToken", refreshToken);
     } catch (e) {
@@ -97,10 +98,7 @@ function Login({ setIsLoggedIn }) {
           </div>
         </form>
 
-        <a
-          className="mt-10 text-center text-sm text-gray-500"
-          href="/api/users/register"
-        >
+        <a className="mt-10 text-center text-sm text-gray-500" href="/register">
           Not a member?
         </a>
       </div>

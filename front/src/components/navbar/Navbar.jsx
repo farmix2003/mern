@@ -7,7 +7,7 @@ const Navbar = ({ users, isLoggedIn, setIsLoggedIn }) => {
   const handleLogout = () => {
     try {
       const response = logoutUser();
-      setIsLoggedIn(false);
+      setIsLoggedIn(() => false);
       navigate("/login");
       return response;
     } catch (err) {

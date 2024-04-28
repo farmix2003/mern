@@ -3,7 +3,7 @@ import * as React from "react";
 import ToolBar from "../toolbar/ToolBar";
 import { blockUser, deleteUser, unblockUser } from "../../server/api";
 
-function Main({ users, setUsers, isLoggedIn }) {
+function Main({ users, setUsers }) {
   const [selectedUsers, setSelectedUsers] = React.useState([]);
   const [selectAllUsers, setSelectAllUSers] = React.useState([]);
 
@@ -56,63 +56,55 @@ function Main({ users, setUsers, isLoggedIn }) {
   };
 
   return (
-    <>
-      {isLoggedIn && (
-        <div style={{ height: 400, width: "80%", marginLeft: "100px" }}>
-          <ToolBar
-            handleDeleteUser={handleDeleteUser}
-            handleBlockUsers={handleBlockUsers}
-            handleUnblockUser={handleUnblockUser}
-          />
-          <table>
-            <thead>
-              <tr>
-                <th>
-                  <input
-                    type="checkbox"
-                    checked={selectAllUsers}
-                    onChange={handleSelectAllUsers}
-                  />
-                </th>
-                <th>ID</th>
-                <th> Full Name</th>
-                <th>Email</th>
-                <th>Last Login Time</th>
-                <th>Registration Time</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {users.map((row) => (
-                <tr key={row.id}>
-                  <td>
-                    <input
-                      type="checkbox"
-                      checked={selectedUsers.includes(row.id)}
-                      onChange={() => handleSelectionChange(row.id)}
-                    />
-                  </td>
-                  <td>{row.id}</td>
-                  <td>{row.name}</td>
-                  <td>{row.email}</td>
-                  <td>
-                    {moment(row.last_login_time).format(
-                      "DD MMM, YYYY hh:mm:ss"
-                    )}
-                  </td>
-                  <td>
-                    {moment(row.registration_time).format(
-                      "DD MMM, YYYY hh:mm:ss"
-                    )}
-                  </td>
-                  <td>{row.status}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
-    </>
+    <div style={{ height: 400, width: "80%", marginLeft: "100px" }}>
+      <ToolBar
+        handleDeleteUser={handleDeleteUser}
+        handleBlockUsers={handleBlockUsers}
+        handleUnblockUser={handleUnblockUser}
+      />
+      <table>
+        <thead>
+          <tr>
+            <th>
+              <input
+                type="checkbox"
+                checked={selectAllUsers}
+                onChange={handleSelectAllUsers}
+              />
+            </th>
+            <th>ID</th>
+            <th> Full Name</th>
+            <th>Email</th>
+            <th>Last Login Time</th>
+            <th>Registration Time</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map((row) => (
+            <tr key={row.id}>
+              <td>
+                <input
+                  type="checkbox"
+                  checked={selectedUsers.includes(row.id)}
+                  onChange={() => handleSelectionChange(row.id)}
+                />
+              </td>
+              <td>{row.id}</td>
+              <td>{row.name}</td>
+              <td>{row.email}</td>
+              <td>
+                {moment(row.last_login_time).format("DD MMM, YYYY hh:mm:ss")}
+              </td>
+              <td>
+                {moment(row.registration_time).format("DD MMM, YYYY hh:mm:ss")}
+              </td>
+              <td>{row.status}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 export default Main;

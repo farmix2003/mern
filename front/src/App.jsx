@@ -29,7 +29,16 @@ const App = () => {
         setIsLoggedIn={setIsLoggedIn}
       />
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route
+          path="/"
+          element={
+            <Login
+              setIsLoggedIn={setIsLoggedIn}
+              users={users}
+              setUsers={setUsers}
+            />
+          }
+        />
         <Route
           path="/home"
           element={
