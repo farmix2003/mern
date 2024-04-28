@@ -12,15 +12,14 @@ function Login({ setIsLoggedIn }) {
     try {
       const response = await loginUser(email, password);
       console.log(response);
-      setEmail("");
-      setPassword("");
+      navigate("/home");
+      // setEmail("");
+      // setPassword("");
       setIsLoggedIn(true);
       const { accessToken, refreshToken } = response;
 
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("refreshToken", refreshToken);
-
-      navigate("/home");
     } catch (e) {
       if (e.response) {
         if (e.status === 403) {
