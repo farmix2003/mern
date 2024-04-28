@@ -8,16 +8,12 @@ import verifyToken from './auth.js'
 
 dotenv.config();
 
-// MongoDB connection setup
 mongoose.connect('mongodb+srv://ffarrux386:KmXZwtslRIay6oel@cluster0.aveiyoe.mongodb.net/mern', {
-    // useNewUrlParser: true,
-    // useUnifiedTopology: true,
-    // useCreateIndex: true,
+
 });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-// MongoDB Schema definition
 const userSchema = new mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     name: String,
@@ -53,7 +49,7 @@ app.get("/", (req, res) => {
     res.status(200).json({ message: 'Server is running' });
 })
 
-app.get('/api/users/get-users', async (req, res) => {
+app.get('/api/users/get-users', verifyToken, async (req, res) => {
     try {
         const users = await User.find();
         res.status(200).json(users);

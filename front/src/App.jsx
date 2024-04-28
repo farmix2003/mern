@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
-import UserManagement from "./components/user-management/UserManagement";
 import Navbar from "./components/navbar/Navbar";
 import Main from "./components/main/Main";
 import { getUsers } from "./server/api";
@@ -38,11 +37,10 @@ const App = () => {
           }
         />
         <Route
-          path="api/users/login"
+          path="/login"
           element={<Login setIsLoggedIn={setIsLoggedIn} />}
         />
-        <Route path="/api/users/register" element={<Register />} />
-        <Route path="/admin" element={<UserManagement />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </>
   );
