@@ -14,7 +14,7 @@ function Login({ setIsLoggedIn, users, setUsers }) {
       console.log(response);
       window.localStorage.setItem("accessToken", response.accessToken);
       window.localStorage.setItem("refreshToken", response.refreshToken);
-
+      setUsers(users);
       setIsLoggedIn(() => true);
       navigate("/home");
     } catch (e) {
