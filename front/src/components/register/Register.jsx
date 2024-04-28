@@ -13,7 +13,7 @@ const Register = ({ users, setUsers }) => {
       const response = await registerUser(name, email, password);
       console.log(response);
       setUsers(users);
-      navigate("/login");
+      navigate("/");
     } catch (e) {
       console.log(e);
     }
