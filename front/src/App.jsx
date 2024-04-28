@@ -36,6 +36,7 @@ const App = () => {
             <Login
               setIsLoggedIn={setIsLoggedIn}
               users={users}
+              isLoggedIn={isLoggedIn}
               setUsers={setUsers}
               setUserInfo={setUserInfo}
             />
